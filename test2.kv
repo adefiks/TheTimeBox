@@ -1,0 +1,313 @@
+#:kivy 1.9.2
+<TextInput>
+    font_size: 32
+    font_name: "RobotoMono-Regular"
+
+
+#:set font_size_table 18
+
+<MyGridLayout>
+    spacing_numbers_column: app.spacing_numbers_column
+    brain_dump_box: brain_dump
+    # date: date_id
+    priorities_table: [top_priorities_1, top_priorities_2, top_priorities_3]
+    timebox_table: [timebox_7_00, timebox_7_30, timebox_8_00, timebox_8_30, timebox_9_00, timebox_9_30, timebox_10_00, timebox_10_30, timebox_11_00, timebox_11_30, timebox_12_00, timebox_12_30, timebox_13_00, timebox_13_30, timebox_14_00, timebox_14_30, timebox_15_00, timebox_15_30, timebox_16_00, timebox_16_30, timebox_17_00, timebox_17_30, timebox_18_00, timebox_18_30, timebox_19_00, timebox_19_30, timebox_20_00, timebox_20_30, timebox_21_00, timebox_21_30, timebox_22_00, timebox_22_30, timebox_23_00, timebox_23_30, timebox_24_00, timebox_24_30]
+
+    GridLayout:
+        cols: 2
+        size: root.width, root.height
+        # size_hint: (0.2, 1)
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 50
+            
+
+            Label:
+                text: "Top Priorities" 
+                font_size: 50
+                size_hint: (1, 0.4)
+            TextInput:
+                id: top_priorities_1
+                write_tab: False
+                size_hint: (1, 0.2)
+                multiline: False
+            TextInput:
+                id: top_priorities_2
+                write_tab: False
+                size_hint: (1, 0.2)
+                multiline: False
+            TextInput:
+                id: top_priorities_3
+                write_tab: False
+                size_hint: (1, 0.2)
+                multiline: False
+
+            Label:
+                text: "Brain Dump" 
+                font_size: 50   
+                size_hint: (1, 0.4)
+            # TextInput:
+            #     id: brain_dump
+            LimitInput:
+                id: brain_dump
+                text: ' '
+                width: 100    
+                on_text:  
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 30
+
+            Label:
+                id: date_id
+                text: root.date
+                font_size: 50
+                size_hint: (1, 0.1)
+
+            GridLayout:
+                cols: 3
+                # size: root.width, root.height
+
+                Label:
+                    text: "" 
+                    font_size: 32
+                Label:
+                    text: ": 00" 
+                    font_size: 32
+                Label:
+                    text: ": 30" 
+                    font_size: 32
+
+                Label:
+                    text: "7" 
+                    font_size: 32
+                    size_hint: (0.6, 0.2)
+                TextInput:
+                    id: timebox_7_00
+                    font_size: font_size_table
+                    write_tab: False
+                    # on_press: root.press_texinput()
+                TextInput:
+                    id: timebox_7_30
+                    font_size: font_size_table
+                    write_tab: False
+
+                Label:
+                    text: "8" 
+                    font_size: 32
+                TextInput:
+                    id: timebox_8_00
+                    font_size: font_size_table
+                    write_tab: False
+                TextInput:
+                    id: timebox_8_30
+                    font_size: font_size_table
+                    write_tab: False
+
+                Label:
+                    text: "9" 
+                    font_size: 32
+                TextInput:
+                    id: timebox_9_00
+                    font_size: font_size_table
+                    write_tab: False
+                TextInput:
+                    id: timebox_9_30
+                    font_size: font_size_table
+                    write_tab: False
+
+                Label:
+                    text: "10" 
+                    font_size: 32
+                TextInput:
+                    id: timebox_10_00
+                    font_size: font_size_table
+                    write_tab: False
+                TextInput:
+                    id: timebox_10_30
+                    font_size: font_size_table
+                    write_tab: False
+
+                Label:
+                    text: "11" 
+                    font_size: 32
+                TextInput:
+                    id: timebox_11_00
+                    font_size: font_size_table
+                    write_tab: False
+                TextInput:
+                    id: timebox_11_30
+                    font_size: font_size_table
+                    write_tab: False
+
+                Label:
+                    text: "12" 
+                    font_size: 32
+                TextInput:
+                    id: timebox_12_00
+                    font_size: font_size_table
+                    write_tab: False
+                TextInput:
+                    id: timebox_12_30
+                    font_size: font_size_table
+                    write_tab: False
+
+                Label:
+                    text: "13" 
+                    font_size: 32
+                TextInput:
+                    id: timebox_13_00
+                    font_size: font_size_table
+                    write_tab: False
+                TextInput:
+                    id: timebox_13_30
+                    font_size: font_size_table
+                    write_tab: False
+
+                Label:
+                    text: "14" 
+                    font_size: 32
+                TextInput:
+                    id: timebox_14_00
+                    font_size: font_size_table
+                    write_tab: False
+                TextInput:
+                    id: timebox_14_30
+                    font_size: font_size_table
+                    write_tab: False
+
+                Label:
+                    text: "15" 
+                    font_size: 32
+                TextInput:
+                    id: timebox_15_00
+                    font_size: font_size_table
+                    write_tab: False
+                TextInput:
+                    id: timebox_15_30
+                    font_size: font_size_table
+                    write_tab: False
+
+                Label:
+                    text: "16" 
+                    font_size: 32
+                TextInput:
+                    id: timebox_16_00
+                    font_size: font_size_table
+                    write_tab: False
+                TextInput:
+                    id: timebox_16_30
+                    font_size: font_size_table
+                    write_tab: False
+
+                Label:
+                    text: "17" 
+                    font_size: 32
+                TextInput:
+                    id: timebox_17_00
+                    font_size: font_size_table
+                    write_tab: False
+                TextInput:
+                    id: timebox_17_30
+                    font_size: font_size_table
+                    write_tab: False
+
+                Label:
+                    text: "18" 
+                    font_size: 32
+                TextInput:
+                    id: timebox_18_00
+                    font_size: font_size_table
+                    write_tab: False
+                TextInput:
+                    id: timebox_18_30
+                    font_size: font_size_table
+                    write_tab: False
+
+                Label:
+                    text: "19" 
+                    font_size: 32
+                TextInput:
+                    id: timebox_19_00
+                    font_size: font_size_table
+                    write_tab: False
+                TextInput:
+                    id: timebox_19_30
+                    font_size: font_size_table
+                    write_tab: False
+
+                Label:
+                    text: "20" 
+                    font_size: 32
+                TextInput:
+                    id: timebox_20_00
+                    font_size: font_size_table
+                    write_tab: False
+                TextInput:
+                    id: timebox_20_30
+                    font_size: font_size_table
+                    write_tab: False
+
+                Label:
+                    text: "21" 
+                    font_size: 32
+                TextInput:
+                    id: timebox_22_00
+                    font_size: font_size_table
+                    write_tab: False
+                TextInput:
+                    id: timebox_22_30
+                    font_size: font_size_table
+                    write_tab: False
+
+                Label:
+                    text: "22" 
+                    font_size: 32
+                TextInput:
+                    id: timebox_21_00
+                    font_size: font_size_table
+                    write_tab: False
+                TextInput:
+                    id: timebox_21_30
+                    font_size: font_size_table
+                    write_tab: False
+
+                Label:
+                    text: "23" 
+                    font_size: 32
+                TextInput:
+                    id: timebox_23_00
+                    font_size: font_size_table
+                    write_tab: False
+                TextInput:
+                    id: timebox_23_30
+                    font_size: font_size_table
+                    write_tab: False
+
+                Label:
+                    text: "24" 
+                    font_size: 32
+                TextInput:
+                    id: timebox_24_00
+                    font_size: font_size_table
+                    write_tab: False
+                TextInput:
+                    id: timebox_24_30
+                    font_size: font_size_table
+                    write_tab: False
+
+                Label:
+                    text: "" 
+                    font_size: 32
+
+                Label:
+                    text: "" 
+                    font_size: 32
+
+                Button:
+                    text: "Subbmit"
+                    on_press: root.press_button()
+
+ 
+        
