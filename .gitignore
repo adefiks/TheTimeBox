@@ -6,3 +6,5 @@
 *.dylib
 *.pdf
 *.csv
+# Dependency directories
+__pycache__/ 
