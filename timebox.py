@@ -1,6 +1,8 @@
+from logging import root
+from turtle import pos
 from kivy.app import App
 from kivy.uix.widget import Widget
-from numpy import source
+from numpy import size, source
 from kivy.lang import Builder
 from kivy.config import Config
 from kivy.properties import ObjectProperty
@@ -9,7 +11,9 @@ from kivy.properties import NumericProperty,ReferenceListProperty,ObjectProperty
 from fpdf import FPDF, HTMLMixin
 from datetime import datetime
 from kivy.uix.textinput import TextInput
+from kivy.graphics import Rectangle
 from save_to_pdf import save_to_pdf,save_temp_csv,load_temp_csv
+
 
 class LimitInput(TextInput):
     def keyboard_on_key_up(self, keycode, text):
@@ -20,6 +24,18 @@ class LimitInput(TextInput):
         if len(self.text) >= 90:
             self.text = self.text[0:89]
 
+
+# class DrawTimeBox(Widget):
+#     def __init__(self, **kwargs):
+#         super(DrawTimeBox, self).__init__(**kwargs)
+
+#         with self.canvas:
+#             self.rect = Rectangle(pos=(0,0), size=(50,50))
+
+#     def on_touch_down(self, touch):
+#         print("hej huj")
+#         return super().on_touch_down(touch)
+
 Builder.load_file('test2.kv')
 
 class MyGridLayout(Widget):
@@ -29,6 +45,12 @@ class MyGridLayout(Widget):
     timebox_table = ListProperty([])
     date_of_pdf = datetime.date(datetime.now())
     date = "Date: " + str(date_of_pdf)
+    time_rectangle = []
+    # rec_width = width * 0.04
+    # rec_height = height * 0.04
+
+    def __init__(self, **kwargs):
+        super(MyGridLayout, self).__init__(**kwargs)
 
     def load_from_csv(self):
         load_temp_csv(self.date_of_pdf, self.brain_dump_box, self.priorities_table, self.timebox_table)
@@ -39,11 +61,28 @@ class MyGridLayout(Widget):
         print(self.date)
 
     def press_button(self):
-        save_to_pdf(self.date_of_pdf,self.brain_dump_box, self.priorities_table, self.timebox_table)
-        save_temp_csv(self.date_of_pdf,self.brain_dump_box, self.priorities_table, self.timebox_table)
+        pass
+        # save_to_pdf(self.date_of_pdf,self.brain_dump_box, self.priorities_table, self.timebox_table)
+        # save_temp_csv(self.date_of_pdf,self.brain_dump_box, self.priorities_table, self.timebox_table)
         
     def press_texinput(self):
         print("cos ktos jak ")
+
+    def on_size(self, *args):
+        for elem in self.time_rectangle:
+            elem.size = (self.width * 0.04, self.height * 0.04)
+
+    def on_touch_down(self, touch):
+        with self.canvas:
+            self.time_rectangle.append(Rectangle(pos=(0,0), size=(self.width * 0.04, self.height * 0.04)))
+            self.time_rectangle[-1].pos = touch.pos
+            print('The touch is at position', touch.pos[1])
+
+            self.time_rectangle[-1].pos = (0,touch.pos[1])
+
+
+        print("hej huj")
+        return super().on_touch_down(touch)
 
 class TheTimeBox(App):
     spacing_numbers_column = NumericProperty(0.2)
@@ -58,5 +97,3 @@ class TheTimeBox(App):
 
 if __name__ == "__main__":
     TheTimeBox().run()
-    # app = TheTimeBox()
-    # app.run()

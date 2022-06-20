@@ -11,6 +11,7 @@
     brain_dump_box: brain_dump
     # date: date_id
     priorities_table: [top_priorities_1, top_priorities_2, top_priorities_3]
+    # timebox_table: [timebox_7_00, timebox_7_30, timebox_8_00, timebox_8_30, timebox_9_00, timebox_9_30, timebox_10_00, timebox_10_30, timebox_11_00, timebox_11_30, timebox_12_00, timebox_12_30, timebox_13_00, timebox_13_30, timebox_14_00, timebox_14_30, timebox_15_00, timebox_15_30, timebox_16_00, timebox_16_30, timebox_17_00, timebox_17_30, timebox_18_00, timebox_18_30, timebox_19_00, timebox_19_30, timebox_20_00, timebox_20_30, timebox_21_00, timebox_21_30, timebox_22_00, timebox_22_30, timebox_23_00, timebox_23_30, timebox_24_00]
     timebox_table: [timebox_7_00, timebox_7_30, timebox_8_00, timebox_8_30, timebox_9_00, timebox_9_30, timebox_10_00, timebox_10_30, timebox_11_00, timebox_11_30, timebox_12_00, timebox_12_30, timebox_13_00, timebox_13_30, timebox_14_00, timebox_14_30, timebox_15_00, timebox_15_30, timebox_16_00, timebox_16_30, timebox_17_00, timebox_17_30, timebox_18_00, timebox_18_30, timebox_19_00, timebox_19_30, timebox_20_00, timebox_20_30, timebox_21_00, timebox_21_30, timebox_22_00, timebox_22_30, timebox_23_00, timebox_23_30, timebox_24_00, timebox_24_30]
 
     GridLayout:
@@ -47,13 +48,15 @@
                 text: "Brain Dump" 
                 font_size: 50   
                 size_hint: (1, 0.4)
-            # TextInput:
-            #     id: brain_dump
+            
             LimitInput:
                 id: brain_dump
                 text: ' '
                 width: 100    
                 on_text:  
+
+            # DrawTimeBox:
+            #         # id: drawtimebox
 
         BoxLayout:
             orientation: 'vertical'
@@ -82,7 +85,9 @@
                 Label:
                     text: "7" 
                     font_size: 32
-                    size_hint: (0.6, 0.2)
+                    # size_hint: (0.6, 0.2)
+                    size_hint_x: -0.5
+                    # size_hint: (0.1, 0.2)
                 TextInput:
                     id: timebox_7_00
                     font_size: font_size_table
@@ -96,6 +101,7 @@
                 Label:
                     text: "8" 
                     font_size: 32
+                    # size_hint: (0.1, 1)
                 TextInput:
                     id: timebox_8_00
                     font_size: font_size_table
@@ -301,9 +307,13 @@
                     text: "" 
                     font_size: 32
 
-                Label:
-                    text: "" 
-                    font_size: 32
+                # Label:
+                #     text: "" 
+                #     font_size: 32
+
+                Button:
+                    background_color: 0, 0, 0, 0
+                    text: 'blob'
 
                 Button:
                     text: "Subbmit"
